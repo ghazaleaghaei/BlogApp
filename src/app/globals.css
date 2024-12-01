@@ -53,3 +53,8 @@
         }
     }
 }
+
+html,
+body {
+    font-family: var(--vazir-font);
+}

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { fontFamily } from "tailwindcss/defaultTheme"
 
 function withOpacity(variableName) {
     return ({ opacityValue }) => {
@@ -39,6 +40,9 @@ export default {
                     50: withOpacity("--color-secondary-50"),
                     0: withOpacity("--color-secondary-0"),
                 },
+            },
+            fontFamily: {
+                sans: ["var(--font-vazir)", ...fontFamily.sans]
             },
             container: {
                 center: true,
