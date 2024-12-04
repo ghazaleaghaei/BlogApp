@@ -8,6 +8,15 @@
             "@/Constants/*": [
                 "Constants/*"
             ],
+            "@/Shared/*": [
+                "Shared/*"
+            ],
+            "@/Layout/*": [
+                "Layout/*"
+            ],
+            "@/Hooks/*": [
+                "Hooks/*"
+            ],
         }
     }
 }
