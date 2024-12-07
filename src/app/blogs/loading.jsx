@@ -4,7 +4,7 @@ function Loading() {
     return (
         <div className="w-full flex justify-center items-center gap-4">
             <Spinner />
-            <h1>در حال بارگذاری پست ها ...</h1>
+            <h1>در حال بارگذاری ...</h1>
         </div>
     )
 }

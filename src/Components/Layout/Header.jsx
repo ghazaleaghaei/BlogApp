@@ -15,7 +15,7 @@ const navLinks = [
 
 function Header() {
     const user = false
-    return (<header className="shadow-md bg-inherit mb-10 sticky top-0 border-b border-b-secondary-300">
+    return (<header className="shadow-md bg-inherit mb-10 sticky top-0 border-b border-b-secondary-300 bg-white z-10">
         <nav className="container xl:max-w-7xl">
             <ul className="flex items-center text-secondary-400 py-2 gap-4">
                 {

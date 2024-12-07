@@ -1,5 +1,5 @@
 function Spinner() {
-    return (<svg class="animate-spin -ml-1 mr-3 h-10 w-10"
+    return (<svg className="animate-spin -ml-1 mr-3 h-10 w-10"
         fill="none"
         viewBox="0 0 24 24"
     >
@@ -9,7 +9,7 @@ function Spinner() {
             cy="12"
             r="10"
             stroke="currentColor"
-            stroke-width="4">
+            strokeWidth="4">
         </circle>
         <path
             class="opacity-75"
