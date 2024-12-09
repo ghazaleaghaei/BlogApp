@@ -1,9 +1,24 @@
+import { getPostBySlug } from "@/services/postServices";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params }) {
+
+    const { postSlug } = await params
+    const post = await getPostBySlug(postSlug);
+
+    return {
+        title: `پست ${post.title}`
+    }
+}
 
 async function Post({ params }) {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/post/slug/${params?.postSlug}`)
-    const { data: { post } } = await res.json();
+    const { postSlug } = await params
+
+    const post = await getPostBySlug(postSlug)
+
+    if (!post) notFound()
 
     return (<section className="text-secondary-600 max-w-4xl mx-auto">
         <h1 className="text-secondary-700 text-2xl font-bold mb-8">

@@ -17,6 +17,9 @@
             "@/Hooks/*": [
                 "Hooks/*"
             ],
+            "@/services/*": [
+                "services/*"
+            ],
         }
     }
 }
