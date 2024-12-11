@@ -7,10 +7,10 @@ async function CategoryList() {
 
     return (
         <ul className="space-y-4">
-            <Link href={`/blogs/`}>همه</Link>
+            <Link href={`/posts/`}>همه</Link>
             {
                 categories.map(category => <li key={category._id}>
-                    <Link href={`/blogs/category/${category.slug}`}>
+                    <Link href={`/posts/category/${category.slug}`}>
                         {category.title}
                     </Link>
                 </li>)

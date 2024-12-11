@@ -1,13 +1,13 @@
 import Author from "@/Components/Shared/Author";
 import CoverImage from "@/Components/Shared/CoverImage";
 import PostInteraction from "@/Components/Shared/PostInteraction";
+import { getPosts } from "@/services/postServices";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 async function PostList() {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/post/list`)
-    const { data: { posts } } = await res.json()
+    const posts = await getPosts()
 
     return posts.length > 0
         ? <div className="grid lg:grid-cols-3 gap-8">
@@ -15,8 +15,8 @@ async function PostList() {
                 key={post._id}
                 className="sm:col-span-2 xl:col-span-1 border border-secondary-100 p-2 rounded-lg flex flex-col gap-2"
             >
-                <CoverImage {...post} link={`/blogs/${post.slug}`} />
-                <Link href={`/blogs/${post.slug}`}>
+                <CoverImage {...post} link={`/posts/${post.slug}`} />
+                <Link href={`/posts/${post.slug}`}>
                     <h2 className="my-2 font-bold text-secondary-700">
                         {post.title}
                     </h2>

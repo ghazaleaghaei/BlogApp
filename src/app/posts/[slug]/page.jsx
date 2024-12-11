@@ -1,11 +1,20 @@
-import { getPostBySlug } from "@/services/postServices";
+import { getPostBySlug, getPosts } from "@/services/postServices";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+export const dynamicParams = true
+//when we get dynamicParams=true it means for example we have 100 posts and we want just 10 post has static rendering and when user needs another posts show them white dynamic rendering, if it was false it means that just show all of the posts in static rendering and when user put another slug in url showing not found page
+
+export async function generateStaticParams() {
+    const posts = await getPosts()
+    const slugs = posts.slice(0, 10).map(post => ({ slug: post.slug }))
+    return slugs
+}
+
 export async function generateMetadata({ params }) {
 
-    const { postSlug } = await params
-    const post = await getPostBySlug(postSlug);
+    const { slug } = await params
+    const post = await getPostBySlug(slug);
 
     return {
         title: `پست ${post.title}`
@@ -14,9 +23,9 @@ export async function generateMetadata({ params }) {
 
 async function Post({ params }) {
 
-    const { postSlug } = await params
+    const { slug } = await params
 
-    const post = await getPostBySlug(postSlug)
+    const post = await getPostBySlug(slug)
 
     if (!post) notFound()
 

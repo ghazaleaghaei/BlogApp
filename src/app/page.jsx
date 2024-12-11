@@ -13,7 +13,7 @@ export default function Home() {
         </p>
         <div className="flex gap-8 items-center mb-10">
             <Button variant="outline">
-                <Link href="/blogs">
+                <Link href="/posts">
                     مطالعه بلاگ ها
                 </Link>
             </Button>

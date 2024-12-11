@@ -9,7 +9,7 @@ const navLinks = [
     {
         id: 2,
         children: "بلاگ ها",
-        path: "/blogs"
+        path: "/posts"
     },
 ]
 
