@@ -2,7 +2,7 @@
 
 import Button from "@/Components/Shared/Button"
 import TextField from "@/Components/Shared/TextField"
-import { signupApi } from "@/services/authService";
+import { signinApi } from "@/services/authService";
 import { useUser } from "app/Context/UserContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -13,9 +13,9 @@ import toast from "react-hot-toast";
 //     title: "ثبت نام",
 // }
 
-function Signup() {
+function Signin() {
 
-    const { signup } = useUser()
+    const { signin } = useUser()
 
     const {
         register,
@@ -26,35 +26,16 @@ function Signup() {
     })
 
     const onSubmit = async (values) => {
-        await signup(values)
+        await signin(values)
     }
 
     return (
         <div>
-            <h1>ثبت نام</h1>
+            <h1>ورود</h1>
             <form
                 className="flex flex-col gap-4 w-full mt-4"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <TextField
-                    name="name"
-                    label="نام و نام خانوادگی"
-                    register={register}
-                    isRequired
-                    validationSchema={{
-                        required: "نام و نام خانوادگی الزامی است",
-                        maxLength: {
-                            value: 30,
-                            message: "حداکثر طول کاراکتر 30 می باشد"
-                        },
-                        minLength: 5,
-                        pattern: {
-                            value: /^[A-Za-z]+$/,
-                            message: "نام و نام خانوادگی نامعتبر می باشد"
-                        },
-                    }}
-                    errors={errors}
-                />
                 <TextField
                     name="email"
                     label="ایمیل"
@@ -87,10 +68,10 @@ function Signup() {
                     تایید
                 </Button>
             </form>
-            <Link href="/signin" className="text-secondary-500 mt-6 text-center flex w-fit mx-auto">
-                ورود
+            <Link href="/signup" className="text-secondary-500 mt-6 text-center flex w-fit mx-auto">
+                ثبت نام
             </Link>
         </div>
     )
 }
-export default Signup
+export default Signin
