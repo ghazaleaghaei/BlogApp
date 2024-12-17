@@ -2,12 +2,9 @@
 
 import Button from "@/Components/Shared/Button"
 import TextField from "@/Components/Shared/TextField"
-import { signupApi } from "@/services/authService";
-import { useUser } from "app/Context/UserContext";
+import { useUser } from "Context/UserContext";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form"
-import toast from "react-hot-toast";
 
 // export const metadata = {
 //     title: "ثبت نام",
@@ -20,7 +17,7 @@ function Signup() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors, isLoading }
     } = useForm({
         mode: "onTouched"
     })
@@ -83,7 +80,12 @@ function Signup() {
                     }}
                     errors={errors}
                 />
-                <Button type="submit" variant="primary" className="w-full mt-4">
+                <Button
+                    type="submit"
+                    variant="primary"
+                    className="w-full mt-4 disabled:opacity-50 duration-300"
+                    disabled={isLoading}
+                >
                     تایید
                 </Button>
             </form>

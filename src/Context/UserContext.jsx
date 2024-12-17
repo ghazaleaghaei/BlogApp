@@ -1,9 +1,9 @@
 "use client"
 
-import { signinApi, signupApi } from "@/services/authService";
+import { getUserApi, signinApi, signupApi } from "@/services/authService";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useReducer, useContext, useEffect } from "react";
 
 const UserContext = createContext()
 
@@ -30,7 +30,11 @@ const userReducer = (state, action) => {
             error: action.payload,
         };
         case "signup": return {
-            usr: action.payload,
+            user: action.payload,
+            isAuthenticated: true,
+        };
+        case "user/loaded": return {
+            user: action.payload,
             isAuthenticated: true,
         }
     }
@@ -56,7 +60,6 @@ export default function UserProvider({ children }) {
         }
     }
 
-
     async function signup(values) {
         dispatch({ type: "loading" })
         try {
@@ -71,6 +74,26 @@ export default function UserProvider({ children }) {
             toast.error(errorMessage)
         }
     }
+
+    async function getUser() {
+        dispatch({ type: "loading" })
+        try {
+            const { user } = await getUserApi()
+            dispatch({ type: "user/loaded", payload: user })
+            console.log(user)
+        } catch (error) {
+            const errorMessage = error?.response?.data?.message
+            dispatch({ type: "rejected", payload: errorMessage })
+            // toast.error(errorMessage)
+        }
+    }
+
+    useEffect(() => {
+        async function fetchData() {
+            await getUser()
+        }
+        fetchData()
+    }, [])
 
     return <UserContext.Provider value={{ user, isAuthenticated, isLoading, signin, signup }}>
         {children}

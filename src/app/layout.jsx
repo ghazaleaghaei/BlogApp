@@ -2,7 +2,7 @@ import Header from "@/Components/Layout/Header";
 import vazirFont from "../Constants/localFont";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-import UserProvider from "./Context/UserContext";
+import UserProvider from "../Context/UserContext";
 
 export const metadata = {
     title: {
