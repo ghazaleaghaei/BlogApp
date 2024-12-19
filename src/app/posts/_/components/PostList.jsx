@@ -1,13 +1,10 @@
 import Author from "@/Components/Shared/Author";
 import CoverImage from "@/Components/Shared/CoverImage";
 import PostInteraction from "@/Components/Shared/PostInteraction";
-import { getPosts } from "@/services/postServices";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-async function PostList() {
-
-    const posts = await getPosts()
+async function PostList({ posts }) {
 
     return posts.length > 0
         ? <div className="grid lg:grid-cols-3 gap-8">
@@ -30,7 +27,7 @@ async function PostList() {
                         <span>دقیقه</span>
                     </div>
                 </div>
-                <PostInteraction {...post} />
+                <PostInteraction post={post} />
             </article>)}
         </div>
         : null;
