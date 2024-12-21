@@ -1,4 +1,4 @@
-import middleWareAuth from "Functions/middlewareAuth";
+import { middleWareAuth } from "Functions/middlewareAuth";
 import { NextResponse } from "next/server";
 
 export async function middleware(req) {

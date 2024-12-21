@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import CategoryList from "../_/components/CategoryList";
 import Spinner from "@/Components/Shared/Spinner";
+import Search from "../_/components/Search";
 
 export const metadata = {
     title: "بلاگ ها"
@@ -8,8 +9,13 @@ export const metadata = {
 
 function Layout({ children }) {
     return (
-        <div className="grid gap-4 grid-cols-6 mb-20">
-            <h1 className="col-span-6 text-lg font-bold mb-10">لیست بلاگ ها</h1>
+        <div className="grid gap-4 grid-cols-6 mb-20 bg-secondary-50/70 p-4">
+            <div className="col-span-6 text-lg font-bold mb-10 grid lg:grid-cols-3 gap-2">
+                <h1 className="inline-block align-bottom">
+                    لیست بلاگ ها
+                </h1>
+                <Search />
+            </div>
             <div className="col-span-2 lg:col-span-1 text-secondary-500 space-y-4">
                 <Suspense fallback={<Spinner />}>
                     <CategoryList />
