@@ -2,6 +2,7 @@ import { getPostBySlug, getPosts } from "@/services/postServices";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import RelatedPost from "../_/components/RelatedPost";
+import PostComment from "../_/components/comment/PostComment";
 
 export const dynamicParams = false
 
@@ -50,6 +51,7 @@ async function Post({ params }) {
         {
             post.related.length > 0 && <RelatedPost posts={post.related} />
         }
+        <PostComment post={post} />
     </section>
     )
 }

@@ -9,7 +9,7 @@ export const metadata = {
 
 function Layout({ children }) {
     return (
-        <div className="grid gap-4 grid-cols-6 mb-20 bg-secondary-50/70 p-4">
+        <div className="grid gap-4 grid-cols-6 mb-20 p-4">
             <div className="col-span-6 text-lg font-bold mb-10 grid lg:grid-cols-3 gap-2">
                 <h1 className="inline-block align-bottom">
                     لیست بلاگ ها

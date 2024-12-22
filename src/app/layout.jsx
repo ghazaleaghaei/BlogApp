@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
                 <UserProvider>
                     <Toaster />
                     <Header />
-                    <div className="container xl:max-w-7xl h-fit flex-1">
+                    <div className="container xl:max-w-7xl h-fit flex-1 bg-secondary-50 pt-10">
                         {children}
                     </div>
                 </UserProvider>
