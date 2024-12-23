@@ -25,7 +25,7 @@ function Modal({ open, title, description, children, onClose }) {
                                 {description}
                             </p>
                         </div>
-                        <button>
+                        <button onClick={onClose}>
                             <XMarkIcon className="w-5 text-secondary-500" />
                         </button>
                     </div>

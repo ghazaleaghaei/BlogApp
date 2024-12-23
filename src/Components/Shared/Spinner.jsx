@@ -1,5 +1,5 @@
-function Spinner() {
-    return (<svg className="animate-spin -ml-1 mr-3 h-10 w-10"
+function Spinner({ containerClass }) {
+    return (<svg className={`${containerClass} animate-spin -ml-1 mr-3  h-10 w-10`}
         fill="none"
         viewBox="0 0 24 24"
     >
