@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import CategoryList from "../_/components/CategoryList";
 import Spinner from "@/Components/Shared/Spinner";
 import Search from "../_/components/Search";
+import Sort from "../_/components/Sort";
 
 export const metadata = {
     title: "بلاگ ها"
@@ -15,6 +16,7 @@ function Layout({ children }) {
                     لیست بلاگ ها
                 </h1>
                 <Search />
+                <Sort />
             </div>
             <div className="col-span-2 lg:col-span-1 text-secondary-500 space-y-4">
                 <Suspense fallback={<Spinner />}>

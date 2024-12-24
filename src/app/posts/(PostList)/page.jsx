@@ -6,11 +6,12 @@ import queryString from "query-string"
 
 async function BlogPage({ searchParams }) {
 
-    const queries = queryString.stringify(searchParams);
+    const queries = queryString.stringify(await searchParams);
     const cookiesStore = await cookies()
+
     const options = await setCookieOnReq(cookiesStore)
     const posts = await getPosts(queries, options)
-    const { search } = searchParams;
+    const { search } = await searchParams;
 
     return (<section className="space-y-4">
 
