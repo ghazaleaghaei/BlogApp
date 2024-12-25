@@ -18,10 +18,7 @@ export default function RootLayout({ children }) {
             <body className={`${vazirFont.variable} font-sans scroll-smooth flex flex-col min-h-screen`}>
                 <UserProvider>
                     <Toaster />
-                    <Header />
-                    <div className="container xl:max-w-7xl h-fit flex-1 bg-secondary-50 pt-10">
-                        {children}
-                    </div>
+                    {children}
                 </UserProvider>
             </body>
         </html>

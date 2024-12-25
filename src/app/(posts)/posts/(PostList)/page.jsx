@@ -7,9 +7,10 @@ import queryString from "query-string"
 async function BlogPage({ searchParams }) {
 
     const queries = queryString.stringify(await searchParams);
-    const cookiesStore = await cookies()
 
-    const options = await setCookieOnReq(cookiesStore)
+    const cookiesStore = await cookies()
+    const options = setCookieOnReq(cookiesStore)
+
     const posts = await getPosts(queries, options)
     const { search } = await searchParams;
 
