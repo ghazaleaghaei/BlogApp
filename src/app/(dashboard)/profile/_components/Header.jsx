@@ -5,8 +5,10 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"
 import { useUser } from "Context/UserContext"
 import Link from "next/link"
 import { useState } from "react"
-import Drawer from "./Drawer"
 import Sidebar from "./Sidebar"
+import dynamic from "next/dynamic"
+
+const Drawer = dynamic(() => import("./Drawer"), { ssr: false })
 
 function Header() {
 

@@ -11,7 +11,7 @@ function TextArea({
         <div className="flex flex-col gap-2">
             <label htmlFor={name} className="text-secondary-600 text-sm">
                 {label}
-                {isRequired && <span className="text-error-900">*</span>}
+                {isRequired && <span className="text-error">*</span>}
             </label>
             <textarea
                 name={name}

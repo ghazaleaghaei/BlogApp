@@ -40,9 +40,9 @@ export default {
                     50: withOpacity("--color-secondary-50"),
                     0: withOpacity("--color-secondary-0"),
                 },
-                error: {
-                    900: withOpacity("--color-error")
-                }
+                error: withOpacity("--color-error")
+                ,
+                success: withOpacity("--color-success")
             },
             fontFamily: {
                 sans: ["var(--font-vazir)", ...fontFamily.sans]

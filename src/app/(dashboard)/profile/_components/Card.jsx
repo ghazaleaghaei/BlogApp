@@ -6,7 +6,7 @@ const iconMap = {
     posts: DocumentIcon,
 }
 
-export function Card({ type, value, title }) {
+export default function Card({ type, value, title }) {
 
     const Icon = iconMap[type]
 
