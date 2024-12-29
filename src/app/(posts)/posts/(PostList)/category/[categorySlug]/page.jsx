@@ -13,7 +13,7 @@ async function Category({ params, searchParams }) {
     const cookiesStore = await cookies()
     const options = setCookieOnReq(cookiesStore)
 
-    const posts = await getPosts(queries, options)
+    const { posts } = await getPosts(queries, options)
 
     return (
         <div>

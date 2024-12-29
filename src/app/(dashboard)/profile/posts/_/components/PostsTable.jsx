@@ -3,7 +3,7 @@ import { getPosts } from "@/services/postServices"
 import PostRow from "./PostRow"
 
 async function PostsTable({ query = "" }) {
-    const posts = await getPosts(query)
+    const { posts } = await getPosts(query)
 
     if (!posts.length) return <p>پستی یافت نشد</p>
 

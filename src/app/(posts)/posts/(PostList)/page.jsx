@@ -11,7 +11,7 @@ async function BlogPage({ searchParams }) {
     const cookiesStore = await cookies()
     const options = setCookieOnReq(cookiesStore)
 
-    const posts = await getPosts(queries, options)
+    const { posts } = await getPosts(queries, options)
     const { search } = await searchParams;
 
     return (<section className="space-y-4">

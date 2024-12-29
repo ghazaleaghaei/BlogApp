@@ -16,8 +16,8 @@ export async function getPosts(queries, options) {
         options
     )
     const { data } = await res.json()
-    const { posts } = data || {}
-    return posts
+    const { posts, totalPages } = data || {}
+    return { posts, totalPages }
 }
 
 

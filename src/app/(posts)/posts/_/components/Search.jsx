@@ -13,6 +13,9 @@ function Search() {
         e.preventDefault();
         const search = e.target.search.value;
         const newParams = new URLSearchParams(searchParams.toString());
+
+        newParams.set("page", "1");
+
         if (search) {
             newParams.set("search", search);
         } else {
@@ -22,7 +25,7 @@ function Search() {
     }
 
     return (
-        <form className="relative" onSubmit={formSubmit}>
+        <form className="relative z-0" onSubmit={formSubmit}>
             <input
                 type="text"
                 name="search"
