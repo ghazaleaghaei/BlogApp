@@ -1,4 +1,4 @@
-function TextField({
+function RHFTextField({
     type = "text",
     label,
     name,
@@ -24,7 +24,7 @@ function TextField({
                 type={type}
                 id={name}
                 dir={dir}
-                className={`bg-gray-50 rounded-lg p-3 focus:outline-none border border-gray-50 hover:border-primary-400 hover:bg-secondary-0 hover:shadow-lg duration-300 ${hasError && " border-error"}`}
+                className={`bg-secondary-100 rounded-lg p-3 focus:outline-none border border-gray-50 hover:border-primary-400 hover:bg-secondary-0 hover:shadow-lg duration-300 ${hasError && " border-error"}`}
                 {...register(name, validationSchema)}
                 {...rest}
             />
@@ -38,4 +38,4 @@ function TextField({
         </div>
     )
 }
-export default TextField
+export default RHFTextField

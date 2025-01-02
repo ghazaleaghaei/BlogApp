@@ -1,13 +1,10 @@
 "use client";
 
 import Button from "@/Components/Shared/Button"
-import TextField from "@/Components/Shared/TextField"
-import { signinApi } from "@/services/authService";
+import RHFTextField from "@/Components/Shared/RHFTextField"
 import { useUser } from "Context/UserContext";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form"
-import toast from "react-hot-toast";
 
 // export const metadata = {
 //     title: "ثبت نام",
@@ -36,7 +33,7 @@ function Signin() {
                 className="flex flex-col gap-4 w-full mt-4"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <TextField
+                <RHFTextField
                     name="email"
                     label="ایمیل"
                     register={register}
@@ -52,7 +49,7 @@ function Signin() {
                     }}
                     errors={errors}
                 />
-                <TextField
+                <RHFTextField
                     name="password"
                     label="پسورد"
                     register={register}

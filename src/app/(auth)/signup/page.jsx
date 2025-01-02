@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/Components/Shared/Button"
-import TextField from "@/Components/Shared/TextField"
+import RHFTextField from "@/Components/Shared/RHFTextField"
 import { useUser } from "Context/UserContext";
 import Link from "next/link";
 import { useForm } from "react-hook-form"
@@ -33,7 +33,7 @@ function Signup() {
                 className="flex flex-col gap-4 w-full mt-4"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <TextField
+                <RHFTextField
                     name="name"
                     label="نام و نام خانوادگی"
                     register={register}
@@ -52,7 +52,7 @@ function Signup() {
                     }}
                     errors={errors}
                 />
-                <TextField
+                <RHFTextField
                     name="email"
                     label="ایمیل"
                     register={register}
@@ -68,7 +68,7 @@ function Signup() {
                     }}
                     errors={errors}
                 />
-                <TextField
+                <RHFTextField
                     name="password"
                     label="پسورد"
                     register={register}
