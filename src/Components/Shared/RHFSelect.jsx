@@ -1,13 +1,18 @@
-function RHFSelect({ label, name, register, options, required, errors }) {
+function RHFSelect({ label, name, register, options, isRequired, errors, validationSchema = {}, ...rest }) {
+
+    const errorMessages = errors?.[name];
+    const hasError = !!(errors && errorMessages)
+
     return (
         <div>
             <label
                 htmlFor={name}
             >
-                {label} {required && <span className="text-error">*</span>}
+                {label} {isRequired && <span className="text-error">*</span>}
             </label>
             <select
-                {...register(name)}
+                {...register(name, validationSchema)}
+                {...rest}
                 id={name}
                 className="bg-secondary-100 rounded-lg p-3 focus:outline-none border border-gray-50 hover:border-primary-400 hover:bg-secondary-0 hover:shadow-lg duration-300 w-full"
             >
@@ -21,6 +26,13 @@ function RHFSelect({ label, name, register, options, required, errors }) {
                     </option>
                 ))}
             </select>
+            {
+                errors && errors[name] && (
+                    <span className="text-error">
+                        {errors[name]?.message}
+                    </span>
+                )
+            }
         </div>
     );
 }
