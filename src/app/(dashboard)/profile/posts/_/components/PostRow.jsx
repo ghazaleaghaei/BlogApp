@@ -30,7 +30,7 @@ function PostRow({ index, title, category, author, createdAt, type, _id }) {
             </td>
             <td className="flex items-center gap-x-3">
                 <UpdatePost id={_id} />
-                <DeletePost id={_id} />
+                <DeletePost id={_id} title={title} />
             </td>
         </Table.Row>
     )

@@ -10,6 +10,7 @@ export async function getPostBySlug(slug) {
     return post
 }
 
+//server action
 export async function getPosts(queries, options) {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/post/list?${queries}`,
@@ -39,4 +40,8 @@ export async function editPostApi({ id, data }) {
 
 export async function getPostById(id) {
     return http.get(`/post/${id}`).then(({ data }) => data.data)
+}
+
+export async function deletePostApi({ id, options }) {
+    return http.delete(`/post/remove/${id}`, options).then(({ data }) => data.data)
 }
